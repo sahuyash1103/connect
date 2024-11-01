@@ -1,13 +1,32 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "target": "es6",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "outDir": "dist"
+        /* Module and Target Options */
+        "module": "commonjs", // Specifies module code generation. CommonJS is widely used for Node.js.
+        "target": "ESNext", // Use the latest ECMAScript version for more modern features.
+        /* Interoperability */
+        "esModuleInterop": true, // Allows better compatibility with CommonJS and ES6 modules.
+        "moduleResolution": "node", // Use Node module resolution to find modules.
+        /* Output Options */
+        "outDir": "./dist", // Redirects output structure to the `dist` folder.
+        "rootDir": "./src", // Specifies the root folder of your source files.
+        /* Source Maps */
+        "sourceMap": true, // Enable source map files to aid in debugging.
+        /* Type Checking Options */
+        "strict": true, // Enable all strict type-checking options.
+        "noImplicitAny": false, // Raise an error on expressions and declarations with an `any` type.
+        "strictNullChecks": true, // Ensure that `null` and `undefined` are handled safely.
+        "strictFunctionTypes": true, // Strict checking for function type parameters and return values.
+        "strictPropertyInitialization": true, // Check that class properties are correctly initialized.
+        /* Additional Options */
+        "skipLibCheck": true, // Skip type checking of declaration files to speed up build time.
+        "forceConsistentCasingInFileNames": true, // Enforces consistent file casing for imports.
+        "resolveJsonModule": true // Allows importing JSON files.
     },
-    "lib": [
-        "es2015"
-    ]
+    "include": [
+        "src/**/*.ts"
+    ], // Include all TypeScript files in the `src` folder.
+    "exclude": [
+        "node_modules",
+        "dist"
+    ] // Exclude node_modules and dist folders.
 }
