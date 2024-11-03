@@ -20,8 +20,19 @@
     /* Additional Options */
     "skipLibCheck": true, // Skip type checking of declaration files to speed up build time.
     "forceConsistentCasingInFileNames": true, // Enforces consistent file casing for imports.
-    "resolveJsonModule": true // Allows importing JSON files.
+    "resolveJsonModule": true, // Allows importing JSON files.
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
-  "include": ["src/**/*.ts"], // Include all TypeScript files in the `src` folder.
-  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist folders.
+  "include": [
+    "src/**/*.ts"
+  ], // Include all TypeScript files in the `src` folder.
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] // Exclude node_modules and dist folders.
 }

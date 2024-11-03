@@ -15,18 +15,32 @@ const schema = new Schema<IUser>(
     },
     userName: {
       type: String,
-    },
-    email: {
-      type: String,
+      unique: true,
     },
     phoneNumber: {
       type: String,
     },
-    password: {
+    email: {
       type: String,
     },
-    isOnboarded: {
+    password: {
+      type: String,
+      select: false,
+    },
+    isEmailVerified: {
       type: Boolean,
+      default: false,
+    },
+    isPhoneNumberVerified: {
+      type: Boolean,
+      default: false,
+    },
+    isOnboard: {
+      type: Boolean,
+    },
+    provider: {
+      type: String,
+      enum: ['EMAIL', 'PHONE', 'GOOGLE', 'GITHUB', 'APPLE'],
     },
   },
   { timestamps: true }
