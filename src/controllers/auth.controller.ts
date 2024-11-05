@@ -23,33 +23,40 @@ export const login = [
       .withMessage('password should be a string'),
   ]),
   async (req: Request, res: Response, next: NextFunction) => {
-    const { userName, password } = req.body;
+    try {
+      const { userName, password } = req.body;
 
-    const user = await userService.findByUserNameWithPassword(userName);
+      const user = await userService.findByUserNameWithPassword(userName);
 
-    if (!user) {
-      return sendResponse(res, HTTP_STATUS.NOT_FOUND, {
-        error: 'Invalid Credentials.',
+      if (!user) {
+        return sendResponse(res, HTTP_STATUS.NOT_FOUND, {
+          error: 'Invalid Credentials.',
+        });
+      }
+
+      const isMatch = await authService.comparePassword(
+        user.password!,
+        password
+      );
+
+      if (!isMatch) {
+        return sendResponse(res, HTTP_STATUS.UNAUTHORIZED, {
+          error: 'Invalid Credentials.',
+        });
+      }
+
+      const tokens = await authService.generateTokens(user);
+
+      return sendResponse(res, HTTP_STATUS.OK, {
+        message: 'successfully Logged in',
+        data: {
+          user,
+          tokens,
+        },
       });
+    } catch (error) {
+      next(error);
     }
-
-    const isMatch = await authService.comparePassword(user.password!, password);
-
-    if (!isMatch) {
-      return sendResponse(res, HTTP_STATUS.UNAUTHORIZED, {
-        error: 'Invalid Credentials.',
-      });
-    }
-
-    const tokens = await authService.generateTokens(user);
-
-    return sendResponse(res, HTTP_STATUS.OK, {
-      message: 'successfully Logged in',
-      data: {
-        user,
-        tokens,
-      },
-    });
   },
 ];
 
@@ -64,45 +71,49 @@ export const register = [
     body('password'),
   ]),
   async (req: Request, res: Response, next: NextFunction) => {
-    const {
-      firstName,
-      middleName,
-      lastName,
-      userName,
-      phoneNumber,
-      email,
-      password,
-    } = req.body;
+    try {
+      const {
+        firstName,
+        middleName,
+        lastName,
+        userName,
+        phoneNumber,
+        email,
+        password,
+      } = req.body;
 
-    const user = await userService.findByUserName(userName);
+      const user = await userService.findByUserName(userName);
 
-    if (user) {
-      return sendResponse(res, HTTP_STATUS.BAD_GATEWAY, {
-        message: 'userName is already taken.',
+      if (user) {
+        return sendResponse(res, HTTP_STATUS.BAD_GATEWAY, {
+          message: 'userName is already taken.',
+        });
+      }
+
+      const newUserData: IUser = {
+        firstName,
+        middleName,
+        lastName,
+        userName,
+        phoneNumber,
+        email,
+      };
+
+      newUserData.password = await authService.hashPassword(password);
+
+      const newUser = await userService.createUser(newUserData);
+
+      const tokens = await authService.generateTokens(newUser);
+
+      return sendResponse(res, HTTP_STATUS.OK, {
+        message: 'successfully Logged in',
+        data: {
+          user: newUser,
+          tokens,
+        },
       });
+    } catch (error) {
+      next(error);
     }
-
-    const newUserData: IUser = {
-      firstName,
-      middleName,
-      lastName,
-      userName,
-      phoneNumber,
-      email,
-    };
-
-    newUserData.password = await authService.hashPassword(password);
-
-    const newUser = await userService.createUser(newUserData);
-
-    const tokens = await authService.generateTokens(newUser);
-
-    return sendResponse(res, HTTP_STATUS.OK, {
-      message: 'successfully Logged in',
-      data: {
-        user: newUser,
-        tokens,
-      },
-    });
   },
 ];
