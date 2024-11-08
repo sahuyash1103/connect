@@ -3,14 +3,16 @@ import User from '../models/user.model';
 import { IUser } from '@/types/user.types';
 
 export default class UserService {
-  async updatePassword(_id: string | undefined, password: any) {
-   
+  async updateUser(_id: string | undefined, user: IUser) {
+    const updatedUser = await User.findByIdAndUpdate(_id, user, { new: true });
+    return updatedUser;
   }
-  
+
   async createUser(newUser: IUser): Promise<IUser> {
     const user = await User.create(newUser);
     return user;
   }
+
   async findByUserName(userName: string): Promise<IUser | null> {
     const user = await User.findOne({ userName: userName }).lean();
 
