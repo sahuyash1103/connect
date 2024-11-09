@@ -1,3 +1,5 @@
+import { ObjectId } from "mongoose";
+
 export interface IUser {
   _id?: string; // Optional for new documents
   firstName?: string;
