@@ -16,7 +16,6 @@ export default [
     rules: {
       // Set these specific rules to warning level
       'no-unused-vars': 'warn', // Warn for unused variables
-      'no-unused-imports': 'warn', // Warn for unused imports
       '@typescript-eslint/no-explicit-any': 'warn', // Warn for usage of `any` type
     },
   },
