@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from 'express';
 import { sendResponse, validate } from '../utils/helper';
 import { body } from 'express-validator';
 
-import { HTTP_STATUS } from '@/utils/constants';
-import EducatoionService from '@/services/education.service';
-import { IEducation } from '@/types/education.types';
+import { HTTP_STATUS } from '../utils/constants';
+import EducatoionService from '../services/education.service';
+import { IEducation } from '../types/education.types';
 
 const educatoionService = new EducatoionService();
 

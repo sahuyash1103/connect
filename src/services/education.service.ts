@@ -1,5 +1,5 @@
-import educationModel from '@/models/education.model';
-import { IEducation } from '@/types/education.types';
+import educationModel from '../models/education.model';
+import { IEducation } from '../types/education.types';
 
 export default class EducatoionService {
   async removeById(educationId: string) {

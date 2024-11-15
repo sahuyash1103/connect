@@ -1,6 +1,6 @@
 import { ObjectId, Types } from 'mongoose';
 import User from '../models/user.model';
-import { IUser } from '@/types/user.types';
+import { IUser } from '../types/user.types';
 
 export default class UserService {
   async updateUser(_id: string | undefined, user: IUser) {

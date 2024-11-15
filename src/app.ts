@@ -12,9 +12,9 @@ import createError from 'http-errors';
 
 import { PORT, MONGO_URI } from './configs/env.config';
 import { logger, httpLogger } from './configs/logger.config';
-import v1Router from './routes/index.route';
 import { HTTP_STATUS } from './utils/constants';
 import { sendResponse } from './utils/helper';
+import v1Router from './routes/index.route';
 
 const app = express();
 

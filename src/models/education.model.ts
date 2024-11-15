@@ -1,4 +1,4 @@
-import { IEducation } from '@/types/education.types';
+import { IEducation } from '../types/education.types';
 import mongoose, { Schema } from 'mongoose';
 const ObjectId = Schema.ObjectId;
 

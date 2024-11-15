@@ -1,5 +1,5 @@
-import { IToken, ITokenData } from '@/types/tokens.types';
-import { IUser } from '@/types/user.types';
+import { IToken, ITokenData } from '../types/tokens.types';
+import { IUser } from '../types/user.types';
 import bcrypt from 'bcryptjs';
 import moment from 'moment';
 import EncryptionService from './encryption.service';

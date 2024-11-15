@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import { sendResponse, validate } from '../utils/helper';
 import { body } from 'express-validator';
-import UserService from '@/services/user.service';
-import { HTTP_STATUS } from '@/utils/constants';
-import AuthService from '@/services/auth.service';
-import { IUser } from '@/types/user.types';
+import UserService from '../services/user.service';
+import { HTTP_STATUS } from '../utils/constants';
+import AuthService from '../services/auth.service';
+import { IUser } from '../types/user.types';
 
 const userService = new UserService();
 const authService = new AuthService();
