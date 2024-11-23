@@ -1,9 +1,40 @@
 import { Router } from 'express';
 import authRouter from './auth.route';
-import educationRouter from './education.route'
+import qualificationRouter from './qualification.route';
+import accountInformationRouter from './accountInformation.route';
+import achievementRouter from './achievement.route';
+import certificateRouter from './certificate.route';
+import companyRouter from './company.route';
+import educatorRouter from './educator.route';
+import emergencyContactRouter from './emergencyContact.route';
+import experienceRouter from './experience.route';
+import healthInformationRouter from './healthInformation.route';
+import instituteRouter from './institute.route';
+import jobOpeningRouter from './jobOpening.route';
+import personalInformationRouter from './personalInformation.route';
+import recruiterRouter from './recruiter.route';
+import skillRouter from './skill.route';
+import socialProfileRouter from './socialProfile.route';
+import studentRouter from './student.route';
 
 const router = Router();
 
 router.use('/auth', authRouter);
-router.use('/education', educationRouter)
+router.use('/qualifications', qualificationRouter);
+router.use('/account-information', accountInformationRouter);
+router.use('/achievements', achievementRouter);
+router.use('/certificates', certificateRouter);
+router.use('/companies', companyRouter);
+router.use('/educators', educatorRouter);
+router.use('/emergency-contacts', emergencyContactRouter);
+router.use('/experiences', experienceRouter);
+router.use('/health-information', healthInformationRouter);
+router.use('/institutes', instituteRouter);
+router.use('/job-openings', jobOpeningRouter);
+router.use('/personal-information', personalInformationRouter);
+router.use('/recruiters', recruiterRouter);
+router.use('/skills', skillRouter);
+router.use('/social-profiles', socialProfileRouter);
+router.use('/students', studentRouter);
+
 export default router;
