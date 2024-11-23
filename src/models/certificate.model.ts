@@ -3,8 +3,9 @@ import { ICertificate } from '../types/certificate.types';
 
 const certificateSchema = new mongoose.Schema<ICertificate>(
   {
-    userId: {
-      type: String,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
     },
     certificateName: {

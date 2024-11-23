@@ -16,8 +16,8 @@ export enum JobStatus {
 
 export interface IJobOpening {
   _id?: string;
-  companyId?: mongoose.Types.ObjectId;
-  recruiterId?: mongoose.Types.ObjectId;
+  company?: mongoose.Types.ObjectId;
+  recruiter?: mongoose.Types.ObjectId;
   title?: string;
   description?: string;
   jobType?: JobType;

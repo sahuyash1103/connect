@@ -3,8 +3,8 @@ import { IJobOpening, JobType, JobStatus } from '../types/jobOpening.types';
 
 const jobOpeningSchema = new mongoose.Schema<IJobOpening>(
   {
-    companyId: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
-    recruiterId: { type: mongoose.Schema.Types.ObjectId, ref: 'Recruiter' },
+    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
+    recruiter: { type: mongoose.Schema.Types.ObjectId, ref: 'Recruiter' },
     title: { type: String },
     description: { type: String },
     jobType: {

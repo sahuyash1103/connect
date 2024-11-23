@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export enum AchievementCategory {
   SPORTS = 'SPORTS',
   ACADEMICS = 'ACADEMICS',
@@ -15,17 +17,17 @@ export enum AchievementLevel {
 }
 
 export interface IAchievement {
-  id: string;
-  userId: string;
-  title: string;
-  description: string;
-  category: AchievementCategory;
-  dateAchieved: Date;
-  level: AchievementLevel;
-  organizationName: string;
-  certificateUrl: string;
-  proofDocumentUrl: string;
-  tags: string[];
-  createdAt: Date;
-  updatedAt: Date;
+  _id?: string;
+  user?: mongoose.Schema.Types.ObjectId;
+  title?: string;
+  description?: string;
+  category?: AchievementCategory;
+  dateAchieved?: Date;
+  level?: AchievementLevel;
+  organizationName?: string;
+  certificateUrl?: string;
+  proofDocumentUrl?: string;
+  tags?: string[];
+  createdAt?: Date;
+  updatedAt?: Date;
 } 

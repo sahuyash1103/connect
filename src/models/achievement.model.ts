@@ -3,8 +3,9 @@ import { IAchievement, AchievementCategory, AchievementLevel } from '../types/ac
 
 const achievementSchema = new mongoose.Schema<IAchievement>(
   {
-    userId: {
-      type: String,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
     },
     title: {

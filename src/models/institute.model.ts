@@ -6,77 +6,84 @@ const instituteSchema = new Schema<IInstitute>(
     name: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     address: {
       type: String,
-      required: true
+      required: true,
     },
     contactNumber: {
       type: String,
-      required: true
+      required: true,
     },
     email: {
       type: String,
-      required: true
+      required: true,
     },
     website: {
       type: String,
-      required: false
+      required: false,
     },
     type: {
       type: String,
       enum: Object.values(InstituteType),
-      required: true
+      required: true,
     },
     affiliation: {
       type: String,
-      required: false
+      required: false,
     },
     establishedYear: {
       type: Date,
-      required: true
+      required: true,
     },
-    accreditation: [{
-      type: String
-    }],
+    accreditation: [
+      {
+        type: String,
+      },
+    ],
     logo: {
       type: String,
-      required: false
+      required: false,
     },
-    gallery: [{
-      type: String
-    }],
+    gallery: [
+      {
+        type: String,
+      },
+    ],
     description: {
       type: String,
-      required: false
+      required: false,
     },
-    notableAlumni: [{
-      type: String
-    }],
-    events: [{
-      type: String
-    }],
-    coursesOffered: [{
-      type: String
-    }],
+    notableAlumni: [
+      {
+        type: String,
+      },
+    ],
+    events: [
+      {
+        type: String,
+      },
+    ],
+    coursesOffered: [
+      {
+        type: String,
+      },
+    ],
     ratings: {
       type: Number,
       default: 0,
       min: 0,
-      max: 5
+      max: 5,
     },
-    socialsId: {
-      type: String,
-      ref: 'SocialProfile'
-    }
+    socialProfiles: {
+      type: Schema.Types.ObjectId,
+      ref: 'SocialProfile',
+    },
   },
   {
     timestamps: true,
-    toJSON: {
-      virtuals: true
-    }
   }
 );
 
-export default mongoose.model<IInstitute>('Institute', instituteSchema); 
+export default mongoose.model<IInstitute>('Institute', instituteSchema);
