@@ -3,17 +3,17 @@ import { sendResponse, validate } from '../utils/helper';
 import { body } from 'express-validator';
 
 import { HTTP_STATUS } from '../utils/constants';
-import EducatoionService from '../services/education.service';
-import { IEducation } from '../types/education.types';
+import QualificationService from '../services/qualification.service';
+import { IQualification } from '../types/qualification.types';
 
-const educatoionService = new EducatoionService();
+const educationService = new QualificationService();
 
 export const get = [
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const page = parseInt(req.query.page as string) || 1;
       const limit = parseInt(req.query.limit as string) || 10;
-      const data = await educatoionService.getAll(page, limit);
+      const data = await educationService.getAll(page, limit);
       sendResponse(res, HTTP_STATUS.OK, {
         data,
       });
@@ -27,7 +27,7 @@ export const getById = [
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const educationId = req.params.id;
-      const data = await educatoionService.getById(educationId);
+      const data = await educationService.getById(educationId);
       sendResponse(res, HTTP_STATUS.OK, {
         data,
       });
@@ -77,7 +77,7 @@ export const create = [
         majorField,
         optionalSubject,
       } = req.body;
-      const educationObj: IEducation = {
+      const educationObj: IQualification = {
         establishments,
         instituteName,
         discipline,
@@ -91,7 +91,7 @@ export const create = [
         majorField,
         optionalSubject,
       };
-      const data = await educatoionService.create(educationObj);
+      const data = await educationService.create(educationObj);
       sendResponse(res, HTTP_STATUS.OK, {
         data,
       });
@@ -142,7 +142,7 @@ export const update = [
           majorField,
           optionalSubject,
         } = req.body;
-        const educationObj: IEducation = {
+        const educationObj: IQualification = {
           establishments,
           instituteName,
           discipline,
@@ -156,7 +156,7 @@ export const update = [
           majorField,
           optionalSubject,
         };
-        const data = await educatoionService.updateById(educationId, educationObj);
+        const data = await educationService.updateById(educationId, educationObj);
         sendResponse(res, HTTP_STATUS.OK, {
           data,
         });
@@ -171,7 +171,7 @@ export const remove = [
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const educationId = req.params.id;
-      const data = await educatoionService.removeById(educationId);
+      const data = await educationService.removeById(educationId);
       sendResponse(res, HTTP_STATUS.OK, {
         data,
       });

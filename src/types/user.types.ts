@@ -1,9 +1,9 @@
-import { ObjectId } from "mongoose";
+import { ObjectId } from 'mongoose';
 
 export interface IUser {
-  _id?: string; // Optional for new documents
+  _id?: string;
   firstName?: string;
-  middleName?: string; // Optional field
+  middleName?: string;
   lastName?: string;
   userName?: string;
   email?: string;
@@ -13,6 +13,6 @@ export interface IUser {
   isEmailVerified?: boolean;
   isPhoneNumberVerified?: boolean;
   provider?: 'EMAIL' | 'PHONE' | 'GOOGLE' | 'GITHUB' | 'APPLE';
-  createdAt?: Date; // Optional, added by Mongoose
-  updatedAt?: Date; // Optional, added by Mongoose
+  createdAt?: Date;
+  updatedAt?: Date;
 }

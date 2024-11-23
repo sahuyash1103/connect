@@ -1,14 +1,21 @@
-import mongoose, { Schema } from 'mongoose';
-const ObjectId = Schema.ObjectId;
+import mongoose from 'mongoose';
+import { IStudent } from '../types/student.types';
 
-const schema = new Schema(
+const studentSchema = new mongoose.Schema<IStudent>(
   {
-    userId:{
-        type: ObjectId,
-        ref: "users"
-    }
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+    socials: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'SocialProfile',
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-export default mongoose.model('students', schema);
+export default mongoose.model<IStudent>('Student', studentSchema);

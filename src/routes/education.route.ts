@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { get, getById, update, remove, create } from '../controllers/education.controller';
+import { get, getById, update, remove, create } from '../controllers/qualification.controller';
 
 const router = Router();
 
