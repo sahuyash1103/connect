@@ -1,0 +1,237 @@
+// Base URL for local development
+@BASE_URL = http://localhost:3001
+@token_data = 
+@token_iv = 
+@headers = {
+    "Content-Type": "application/json",
+    "x-auth-data": "{{token_data}}", 
+    "x-auth-iv": "{{token_iv}}"       
+}
+
+// -------------------- Authentication --------------------
+@BASE_URL = http://localhost:3001/api/v1
+
+###
+# @name 
+POST {{BASE_URL}}/auth/login
+{{headers}}
+// set the token data and iv to the variables
+@token_data = 
+
+###
+POST {{BASE_URL}}/auth/signup
+
+
+
+// -------------------- Account Information --------------------
+GET {{BASE_URL}}/account-information
+{{headers}}
+###
+POST {{BASE_URL}}/account-information
+{{headers}}
+###
+PUT {{BASE_URL}}/account-information/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/account-information/:id
+{{headers}}
+###
+
+// -------------------- Achievements --------------------
+@BASE_URL = http://localhost:3001/api/v1
+@Id = 
+@achievement = 
+
+GET {{BASE_URL}}/achievements
+{{headers}}
+###
+POST {{BASE_URL}}/achievements
+{{headers}}
+###
+PUT {{BASE_URL}}/achievements/{{Id}}
+{{headers}}
+###
+DELETE {{BASE_URL}}/achievements/{{Id}}
+{{headers}}
+
+// -------------------- Certificates --------------------
+###
+GET {{BASE_URL}}/certificates
+{{headers}}
+###
+POST {{BASE_URL}}/certificates
+{{headers}}
+###
+PUT {{BASE_URL}}/certificates/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/certificates/:id
+
+// -------------------- Companies --------------------
+###
+GET {{BASE_URL}}/companies
+{{headers}}
+###
+POST {{BASE_URL}}/companies
+{{headers}}
+###
+PUT {{BASE_URL}}/companies/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/companies/:id
+
+// -------------------- Educators --------------------
+###
+GET {{BASE_URL}}/educators
+{{headers}}
+###
+POST {{BASE_URL}}/educators
+{{headers}}
+###
+PUT {{BASE_URL}}/educators/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/educators/:id
+
+// -------------------- Emergency Contacts --------------------
+###
+GET {{BASE_URL}}/emergency-contacts
+{{headers}}
+###
+POST {{BASE_URL}}/emergency-contacts
+{{headers}}
+###
+PUT {{BASE_URL}}/emergency-contacts/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/emergency-contacts/:id
+
+// -------------------- Experiences --------------------
+###
+GET {{BASE_URL}}/experiences
+{{headers}}
+###
+POST {{BASE_URL}}/experiences
+{{headers}}
+###
+PUT {{BASE_URL}}/experiences/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/experiences/:id
+
+// -------------------- Health Information --------------------
+###
+GET {{BASE_URL}}/health-information
+{{headers}}
+###
+POST {{BASE_URL}}/health-information
+{{headers}}
+###
+PUT {{BASE_URL}}/health-information/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/health-information/:id
+
+// -------------------- Institutes --------------------
+###
+GET {{BASE_URL}}/institutes
+{{headers}}
+###
+POST {{BASE_URL}}/institutes
+{{headers}}
+###
+PUT {{BASE_URL}}/institutes/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/institutes/:id
+
+// -------------------- Job Openings --------------------
+###
+GET {{BASE_URL}}/job-openings
+{{headers}}
+###
+POST {{BASE_URL}}/job-openings
+{{headers}}
+###
+PUT {{BASE_URL}}/job-openings/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/job-openings/:id
+
+// -------------------- Personal Information --------------------
+###
+GET {{BASE_URL}}/personal-information
+{{headers}}
+###
+POST {{BASE_URL}}/personal-information
+{{headers}}
+###
+PUT {{BASE_URL}}/personal-information/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/personal-information/:id
+
+// -------------------- Qualifications --------------------
+###
+GET {{BASE_URL}}/qualifications
+{{headers}}
+###
+POST {{BASE_URL}}/qualifications
+{{headers}}
+###
+PUT {{BASE_URL}}/qualifications/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/qualifications/:id
+
+// -------------------- Recruiters --------------------
+###
+GET {{BASE_URL}}/recruiters
+{{headers}}
+###
+POST {{BASE_URL}}/recruiters
+{{headers}}
+###
+PUT {{BASE_URL}}/recruiters/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/recruiters/:id
+
+// -------------------- Skills --------------------
+###
+GET {{BASE_URL}}/skills
+{{headers}}
+###
+POST {{BASE_URL}}/skills
+{{headers}}
+###
+PUT {{BASE_URL}}/skills/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/skills/:id
+
+// -------------------- Social Profiles --------------------
+###
+GET {{BASE_URL}}/social-profiles
+{{headers}}
+###
+POST {{BASE_URL}}/social-profiles
+{{headers}}
+###
+PUT {{BASE_URL}}/social-profiles/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/social-profiles/:id
+
+// -------------------- Students --------------------
+###
+GET {{BASE_URL}}/students
+{{headers}}
+###
+POST {{BASE_URL}}/students
+{{headers}}
+###
+PUT {{BASE_URL}}/students/:id
+{{headers}}
+###
+DELETE {{BASE_URL}}/students/:id

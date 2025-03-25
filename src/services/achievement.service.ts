@@ -1,12 +1,15 @@
 import achievementModel from '../models/achievement.model';
 import { IAchievement } from '../types/achievement.types';
+import mongoose from 'mongoose';
 
 export default class AchievementService {
   async removeById(id: string): Promise<IAchievement | null> {
+    if (!mongoose.Types.ObjectId.isValid(id)) return null;
     return await achievementModel.findByIdAndDelete(id).lean();
   }
 
   async updateById(id: string, achievement: IAchievement): Promise<IAchievement | null> {
+    if (!mongoose.Types.ObjectId.isValid(id)) return null;
     return await achievementModel.findByIdAndUpdate(id, achievement, {
       new: true,
     });
@@ -17,6 +20,7 @@ export default class AchievementService {
   }
 
   async getById(id: string): Promise<IAchievement | null> {
+    if (!mongoose.Types.ObjectId.isValid(id)) return null;
     return await achievementModel.findById(id).lean();
   }
 

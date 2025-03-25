@@ -18,7 +18,7 @@ export enum AchievementLevel {
 
 export interface IAchievement {
   _id?: string;
-  user?: mongoose.Schema.Types.ObjectId;
+  user?: mongoose.Types.ObjectId;
   title?: string;
   description?: string;
   category?: AchievementCategory;

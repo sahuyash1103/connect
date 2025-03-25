@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export interface ICertificate {
   _id?: string;
-  user?: mongoose.Schema.Types.ObjectId;
+  user?: mongoose.Types.ObjectId;
   certificateName?: string;
   issuedBy?: string;
   issueDate?: Date;

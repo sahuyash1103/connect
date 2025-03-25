@@ -11,11 +11,11 @@ const authService = new AuthService();
 
 export const login = [
   validate([
-    body('userName')
+    body('username')
       .notEmpty()
-      .withMessage('userName is required.')
+      .withMessage('username is required.')
       .isString()
-      .withMessage('userName should be a string'),
+      .withMessage('username should be a string'),
     body('password')
       .notEmpty()
       .withMessage('password is required.')
@@ -24,9 +24,9 @@ export const login = [
   ]),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { userName, password } = req.body;
+      const { username, password } = req.body;
 
-      const user = await userService.findByUserNameWithPassword(userName);
+      const user = await userService.findByUserNameWithPassword(username);
 
       if (!user) {
         return sendResponse(res, HTTP_STATUS.NOT_FOUND, {
